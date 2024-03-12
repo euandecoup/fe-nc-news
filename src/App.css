@@ -3,6 +3,13 @@
   justify-content: space-between;
   padding: 1rem 2rem;
   background: #cfd8dc;
+  font-size: 1.25vw;
+}
+
+@media screen and (max-width: 600px) {
+  .main-nav {
+    font-size: 10px
+  }
 }
 
 .topic-nav {
@@ -11,8 +18,9 @@
   background-color: rgb(113,166,210)
 }
 
-.link {
-  /* background: violet  */
+a {
+  font-weight: bolder;
+  text-decoration: none;
 }
 
 .article-list {
@@ -21,6 +29,13 @@
   flex-wrap: wrap;
   justify-content: center;
   padding: 10px;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .article {
@@ -34,6 +49,17 @@
   background-color: rgb(177,204,116);
 }
 
+.comment {
+  height:auto;
+  width: auto;
+  max-width: 600px;
+  margin: 1em 0;
+  border-radius: 5px;
+  border: solid;
+  border-color: darkmagenta;
+  background-color: powderblue;
+}
+
 .article-img {
   max-width: 95%;
   object-fit: cover;
@@ -44,5 +70,4 @@
   width: 50vw;
   object-fit: cover;
   border-radius: 5px;
-
 }
