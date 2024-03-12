@@ -5,13 +5,13 @@ import Header from './Components/Header'
 import { Route, Routes } from 'react-router'
 import UserContext from './Contexts/User'
 import Home from './Components/Home'
-import ArticleCard from './Components/ArticleCard'
+import SingleArticleList from './Components/SingleArticle'
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
     username: "Guest",
     name: "Guest",
-    avatar_url: "./assets/guest-user-250x250.jpg"
+    avatar_url: "./assets/guest-icon-orange.png"
   })
 
   return (
@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/articles" element={<ArticleList />}/>
-        <Route path="/articles/:article_id" element={<ArticleCard />}/>
+        <Route path="/articles/:article_id" element={<SingleArticleList />}/>
       </Routes>
     </UserContext.Provider>
   )
