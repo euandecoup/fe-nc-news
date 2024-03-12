@@ -5,6 +5,7 @@ import Header from './Components/Header'
 import { Route, Routes } from 'react-router'
 import UserContext from './Contexts/User'
 import Home from './Components/Home'
+import ArticleCard from './Components/ArticleCard'
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/articles" element={<ArticleList />}/>
+        <Route path="/articles/:article_id" element={<ArticleCard />}/>
       </Routes>
     </UserContext.Provider>
   )

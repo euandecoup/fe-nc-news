@@ -16,14 +16,16 @@
 }
 
 .article-list {
-  display:flex;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 10px;
 }
 
 .article {
-  list-style: none;
+  height:auto;
+  width: auto;
   margin: 1em;
   padding: 1em;
   border-radius: 5px;
@@ -32,7 +34,15 @@
   background-color: rgb(177,204,116);
 }
 
-/* #articleImg{
+.article-img {
+  max-width: 95%;
+  object-fit: cover;
+  border-radius: 5px;
+}
 
-  max-width: 75%;
-} */
+.thumbnail-img {
+  width: 50vw;
+  object-fit: cover;
+  border-radius: 5px;
+
+}
