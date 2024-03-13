@@ -5,7 +5,7 @@ import Header from './Components/Header'
 import { Route, Routes } from 'react-router'
 import UserContext from './Contexts/User'
 import Home from './Components/Home'
-import SingleArticleList from './Components/SingleArticle'
+import SingleArticleList from './Components/SingleArticleList'
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
