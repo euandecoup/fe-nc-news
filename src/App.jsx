@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/articles" element={<ArticleList />}/>
-        <Route path="/articles/:article_id" element={<SingleArticleList />}/>
+        <Route path="/articles/:article_id" element={<SingleArticleList loggedInUser={loggedInUser}/>}/>
       </Routes>
     </UserContext.Provider>
   )

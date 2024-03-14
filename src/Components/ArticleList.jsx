@@ -6,7 +6,7 @@ function ArticleList () {
 const [articles, setArticles] = useState([])
 
     useEffect(() => {
-        fetchData("/articles").then(({articles}) => {
+        fetchData().then(({articles}) => {
             setArticles(articles)
         }).catch((err) => {
             console.log(err);
