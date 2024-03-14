@@ -29,8 +29,9 @@ export const patchArticle = (article_id, voteChange) => {
 }
 
 export const postComment = (article_id, loggedInUser, newCommentText) => {
+    const {username} = loggedInUser.loggedInUser
     const postBody = {
-        username: loggedInUser,
+        username: username,
         body: newCommentText
     }
     return newsApi.post(`/articles/${article_id}/comments`, postBody)
