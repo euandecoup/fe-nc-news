@@ -9,9 +9,9 @@ import SingleArticleList from './Components/SingleArticleList'
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
-    username: "Guest",
-    name: "Guest",
-    avatar_url: "./assets/guest-icon-orange.png"
+    username: "grumpy19",
+    name: "jonny",
+    avatar_url: "./assets/guest-user-250x250.jpg"
   })
 
   return (
