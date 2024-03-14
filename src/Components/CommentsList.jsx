@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { fetchData } from '../utils/api'
+import { deleteComment, fetchData } from '../utils/api'
 import { useParams, useSearchParams } from 'react-router-dom'
 import CommentAdder from './CommentAdder'
 
@@ -16,6 +16,19 @@ function CommentsList ({loggedInUser}) {
         })
     }, [article_id])
 
+    function handleDeleteComment (comment_id) {
+        deleteComment(comment_id)
+        .then(() => {
+            setComments((currentComments) => {
+                return currentComments.filter((comment) => comment.comment_id !== comment_id)
+            }
+            )
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
     return (
         <div className='comments-list'>
             <h4>{comments.length === 0 ? 'so much void...': 'So much comment...'}</h4>
@@ -26,6 +39,11 @@ function CommentsList ({loggedInUser}) {
                     <p>{comment.body}</p>
                     <p>Votes: {comment.votes}</p>
                     <p>Posted: {new Date(comment.created_at).toLocaleString()}</p>
+                    {loggedInUser.username === comment.author && (
+                        <button onClick={() => handleDeleteComment(comment.comment_id)}>
+                            Delete Comment
+                        </button>
+                    )}
                 </div>
             ))}
         </div>
