@@ -4,6 +4,7 @@ import { postComment } from '../utils/api'
 function CommentAdder ({article_id, loggedInUser, setComments}) {
     const [newComment, setNewComment] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const [error, setError] = useState(null)
 
     function handleCommentInput (e) {
         setNewComment(e.target.value)
@@ -11,6 +12,11 @@ function CommentAdder ({article_id, loggedInUser, setComments}) {
 
     function handleSubmit (e) {
         e.preventDefault()
+        if (newComment.trim() === '') {
+            setError('Comment cannot be empty')
+            return
+        }
+        setError(null)
         setIsSubmitting(true)
         postComment(article_id, {loggedInUser}, newComment)
         .then((newCommentFromApi) => {
@@ -23,14 +29,17 @@ function CommentAdder ({article_id, loggedInUser, setComments}) {
         .catch((err) => {
             console.log(err);
             setIsSubmitting(false)
+            setError('Failed to post comment. Please try again.')
         })
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>Write a comment...</label>
-            <input type='text' value={newComment} onChange={handleCommentInput}></input>
+            <label>What did you think?</label>
+            <textarea value={newComment} onChange={handleCommentInput} rows="4" placeholder="Enter a comment here..."></textarea>
+            <p>{error}</p>
             <input type='submit' value='Add Comment' disabled={isSubmitting}/>
+            {isSubmitting && <p>Posting comment...</p>}
         </form>
     )
 }
