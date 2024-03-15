@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchData, patchArticle } from "../utils/api";
+import { fetchArticleById, patchArticle } from "../utils/api";
 import { useParams } from "react-router-dom";
 import CommentsList from "./CommentsList";
 
@@ -12,7 +12,7 @@ function SingleArticleList ({loggedInUser}) {
 
     useEffect(() => {
         setIsLoading(true)
-        fetchData(article_id).then((data) => {
+        fetchArticleById(article_id).then((data) => {
             setArticle(data.article)
             setVotes(data.article.votes)
             setIsLoading(false)

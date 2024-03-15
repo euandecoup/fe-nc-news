@@ -12,12 +12,6 @@
   }
 }
 
-.topic-nav {
-  display: flex; 
-  justify-content: space-evenly;
-  background-color: rgb(113,166,210)
-}
-
 a {
   font-weight: bolder;
   text-decoration: none;
@@ -41,6 +35,17 @@ a {
   max-width: 800px
 }
 
+.topic-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0;
+}
+
 .article {
   height:auto;
   width: auto;
@@ -62,6 +67,21 @@ a {
   border-color: darkmagenta;
   background-color: powderblue;
   box-sizing: border-box;
+}
+
+.topic {
+  height:auto;
+  width: 90%;
+  max-width: 600px;
+  margin: 1em 0;
+  border-radius: 5px;
+  border: solid;
+  border-color: darkmagenta;
+  background-color: powderblue;
+  box-sizing: border-box;
+  text-align: center;
+  min-height: 100px;
+  min-width: 100px
 }
 
 .article-img {

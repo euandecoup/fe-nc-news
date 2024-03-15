@@ -4,15 +4,29 @@ const newsApi = axios.create({
     baseURL: "https://nc-news-8had.onrender.com/api"
 })
 
-export const fetchData =  (article_id, addToEndpoint) => {
-    let endpoint = '/articles'
-    if (article_id) {
-        endpoint += `/${article_id}`
-    }
-    if (addToEndpoint) {
-        endpoint += addToEndpoint
-    }
-    return newsApi.get(endpoint)
+export const fetchArticles = (topic) => {
+    return newsApi.get('/articles', {params: {topic}})
+    .then((response) => {
+        return response.data
+    })
+}
+
+export const fetchArticleById =  (article_id) => {
+    return newsApi.get(`/articles/${article_id}`)
+    .then((response) => {
+        return response.data
+    })
+}
+
+export const fetchCommentByArticleId =  (article_id) => {
+    return newsApi.get(`/articles/${article_id}/comments`)
+    .then((response) => {
+        return response.data
+    })
+}
+
+export const fetchTopics =  () => {
+    return newsApi.get(`/topics`)
     .then((response) => {
         return response.data
     })
