@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { fetchData } from '../utils/api'
-import { Link } from 'react-router-dom'
+import { fetchArticles } from '../utils/api'
+import { Link, useSearchParams } from 'react-router-dom'
 
-function ArticleList () {
-const [articles, setArticles] = useState([])
+function ArticleList ({articles, setArticles}) {
+    const [searchParams] = useSearchParams()
+    const topic = searchParams.get('topic')
 
     useEffect(() => {
-        fetchData().then(({articles}) => {
+        fetchArticles(topic).then(({articles}) => {
             setArticles(articles)
         }).catch((err) => {
             console.log(err);

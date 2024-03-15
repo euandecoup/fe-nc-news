@@ -13,7 +13,7 @@ function Header () {
         <nav className='main-nav'>
             <Link className="link" key={'Home'} to={`/`}>Home</Link>
             <Link className="link" key={'Articles'} to={'/articles'}>Articles</Link>
-            <a>Topics</a>
+            <Link className="link" key={'Topics'} to={'/topics'}>Topics</Link>
             <a>Users</a>
         </nav>
     </div>
