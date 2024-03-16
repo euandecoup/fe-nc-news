@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import capitaliseFirstLetter from "../utils/capitaliseFirstLetter";
 import { fetchTopics } from "../utils/api";
 
-function TopicsList ({articles}) {
+function TopicsList () {
     const [topics, setTopics] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     
