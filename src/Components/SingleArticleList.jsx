@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { fetchArticleById, patchArticle } from "../utils/api";
 import { useParams } from "react-router-dom";
 import CommentsList from "./CommentsList";
+import UserContext from "../Contexts/User";
 
-function SingleArticleList ({loggedInUser}) {
+function SingleArticleList () {
+    const {loggedInUser} = useContext(UserContext)
     const [article, setArticle] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [votes, setVotes] = useState(0)

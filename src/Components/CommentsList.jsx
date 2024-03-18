@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { deleteComment, fetchCommentByArticleId } from '../utils/api'
 import { useParams} from 'react-router-dom'
 import CommentAdder from './CommentAdder'
+import UserContext from '../Contexts/User'
 
-function CommentsList ({loggedInUser}) {
+function CommentsList () {
+    const {loggedInUser} = useContext(UserContext)
     const [comments, setComments] = useState([])
     const [isDeleting, setIsDeleting] = useState(false)
     const [error, setError] = useState(null)
@@ -36,7 +38,7 @@ function CommentsList ({loggedInUser}) {
     return (
         <div className='comments-list'>
             <h4>{comments.length === 0 ? 'so much void...': 'So much comment...'}</h4>
-            <CommentAdder article_id={article_id} loggedInUser={loggedInUser} setComments={setComments}/>
+            <CommentAdder article_id={article_id} setComments={setComments}/>
             {error && <p>{error}</p>}
             {comments.map((comment) => (
                 <div className='comment' key={comment.comment_id}>
