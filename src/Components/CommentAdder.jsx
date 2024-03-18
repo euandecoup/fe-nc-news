@@ -1,7 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { postComment } from '../utils/api'
+import UserContext from '../Contexts/User'
 
-function CommentAdder ({article_id, loggedInUser, setComments}) {
+function CommentAdder ({article_id, setComments}) {
+    const {loggedInUser} = useContext(UserContext)
     const [newComment, setNewComment] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [error, setError] = useState(null)
