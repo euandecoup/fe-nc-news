@@ -7,12 +7,15 @@ function ArticleList ({articles, setArticles}) {
     const topic = searchParams.get('topic')
     const [sortSelect, setSortSelect] = useState(searchParams.get('sort_by') || 'created_at')
     const [orderSelect, setOrderSelect] = useState(searchParams.get('order') || 'desc')
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         fetchArticles(topic).then(({articles}) => {
             setArticles(articles)
+            setIsLoading(false)
         }).catch((err) => {
             console.log(err);
+            setIsLoading(false)
         })
     }, [topic])
 
@@ -35,7 +38,9 @@ function ArticleList ({articles, setArticles}) {
             })
    }
 
-    return <>
+    return isLoading ? (
+        <h2>Loading...</h2>
+    ) : (<>
     <h2>So much content...</h2>
     <div>
         <label>Sort by: </label>
@@ -63,7 +68,7 @@ function ArticleList ({articles, setArticles}) {
                 </Link>
         ))}
     </ul>
-    </>
+    </>)
 }
 
 export default ArticleList

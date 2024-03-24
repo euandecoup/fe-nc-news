@@ -17,11 +17,9 @@ function TopicsList () {
         })
     }, [])
 
-    if (isLoading) {
-        return <p>Loading...</p>
-    }
-
-    return <>
+    return isLoading ? (
+        <h2>Loading...</h2>
+    ) : (<>
     <h2>So topical...</h2>
     <ul className='topic-list'>
         {topics.map((topic, index) => (
@@ -33,7 +31,7 @@ function TopicsList () {
                 </Link>
         ))}
     </ul>
-    </>
+    </>)
 }
 
 export default TopicsList

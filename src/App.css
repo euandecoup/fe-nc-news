@@ -47,6 +47,8 @@ a {
 }
 
 .article {
+  display: flex;
+  flex-direction: column;
   height:auto;
   width: auto;
   margin: 1em;
@@ -84,14 +86,26 @@ a {
   min-width: 100px
 }
 
+.article-header {
+  /* display: flex;
+  flex-wrap: wrap; */
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
 .article-img {
-  max-width: 95%;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   border-radius: 5px;
+  margin: 0 auto;
 }
 
 .thumbnail-img {
   width: 50vw;
+  height: auto;
   object-fit: cover;
   border-radius: 5px;
+  margin: 0 auto;
 }

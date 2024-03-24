@@ -57,15 +57,17 @@ function SingleArticleList () {
         <h2>Loading...</h2>
     ) : (
         <div className='article'>
-            <h3>{article.title}</h3>
-            <p>By {article.author}</p>
-            <p>Votes: {votesLoading ? '...' : votes}</p>
-            <button onClick={() => {handleUpvote(article.article_id)}}>
-                <span aria-label="upvote this article"> 👍</span>
-            </button>
-            <button onClick={() => {handleDownvote(article.article_id)}}>
-                <span aria-label="downvote for this article"> 👎</span>
-            </button>
+            <div className="article-header">
+                <h3>{article.title}</h3>
+                <p>By {article.author}</p>
+                <p>Votes: {votesLoading ? '...' : votes}</p>
+                <button onClick={() => {handleUpvote(article.article_id)}}>
+                    <span aria-label="upvote this article"> 👍</span>
+                </button>
+                <button onClick={() => {handleDownvote(article.article_id)}}>
+                    <span aria-label="downvote for this article"> 👎</span>
+                </button>
+            </div>
            <img className="article-img" src={article.article_img_url}></img>
             <p>{article.body}</p>
             <p>Posted: {new Date(article.created_at).toLocaleString()}</p>
