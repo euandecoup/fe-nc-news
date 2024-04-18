@@ -6,6 +6,7 @@ import { fetchTopics } from "../utils/api";
 function TopicsList () {
     const [topics, setTopics] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState(null)
     
     useEffect(() => {
         fetchTopics().then(({topics}) => {
@@ -14,11 +15,14 @@ function TopicsList () {
         }).catch((err) => {
             console.log(err);
             setIsLoading(false)
+            setError('Failed to fetch topics. Please try again.')
         })
     }, [])
 
     return isLoading ? (
         <h2>Loading...</h2>
+    ) : error ? (
+        <p>{error}</p>
     ) : (<>
     <h2>So topical...</h2>
     <ul className='topic-list'>

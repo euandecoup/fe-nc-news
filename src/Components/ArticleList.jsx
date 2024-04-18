@@ -8,6 +8,7 @@ function ArticleList ({articles, setArticles}) {
     const [sortSelect, setSortSelect] = useState(searchParams.get('sort_by') || 'created_at')
     const [orderSelect, setOrderSelect] = useState(searchParams.get('order') || 'desc')
     const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         fetchArticles(topic).then(({articles}) => {
@@ -16,6 +17,7 @@ function ArticleList ({articles, setArticles}) {
         }).catch((err) => {
             console.log(err);
             setIsLoading(false)
+            setError('Failed to fetch articles. Please try again.')
         })
     }, [topic])
 
@@ -35,11 +37,14 @@ function ArticleList ({articles, setArticles}) {
             })
             .catch((err) => {
                 console.log(err);
+                setError('Failed to sort articles. Please try again.')
             })
    }
 
     return isLoading ? (
         <h2>Loading...</h2>
+    ) : error ? (
+        <p>{error}</p>
     ) : (<>
     <h2>So much content...</h2>
     <div>

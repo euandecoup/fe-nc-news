@@ -10,6 +10,7 @@ function SingleArticleList () {
     const [isLoading, setIsLoading] = useState(true)
     const [votes, setVotes] = useState(0)
     const [votesLoading, setVotesLoading] = useState(false)
+    const [error, setError] = useState(null)
     const { article_id } = useParams()
 
     useEffect(() => {
@@ -20,6 +21,7 @@ function SingleArticleList () {
             setIsLoading(false)
         }).catch((err) => {
             console.log(err);
+            setError('Failed to fetch article. Please try again.')
         })
     }, [article_id])
 
@@ -35,6 +37,7 @@ function SingleArticleList () {
             console.log(err);
             setVotes((currentVotes) => currentVotes -1)
             setVotesLoading(false)
+            setError('Failed to upvote. Please try again.')
         })
     }
 
@@ -50,11 +53,14 @@ function SingleArticleList () {
             console.log(err);
             setVotes((currentVotes) => currentVotes +1)
             setVotesLoading(false)
+            setError('Failed to downote. Please try again.')
         })
     }
 
     return isLoading ? (
         <h2>Loading...</h2>
+    ) : error ? (
+        <p>{error}</p>
     ) : (
         <div className='article'>
             <div className="article-header">
