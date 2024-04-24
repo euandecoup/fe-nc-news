@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 function Home () {
     const [topArticle, setTopArticle] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         fetchArticles().then(({articles}) => {
@@ -14,11 +15,14 @@ function Home () {
         }).catch((err) => {
             console.log(err)
             setIsLoading(false)
+            setError('Failed to fetch top article. Please try again.')
         })
     })
 
     return isLoading ? (
         <h2>Loading...</h2>
+    ) : error ? (
+        <p>{error}</p>
     ) : (
         <div>
             <h2>Top Voted Article</h2>
