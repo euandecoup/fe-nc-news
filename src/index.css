@@ -9,15 +9,18 @@ h1 {
   margin-bottom: 1rem;
   font-size: 3rem;
   font-style: oblique;
-  /* background-image: url("../banner.png");
-  background-size:  100% auto;
-  background-repeat:   no-repeat;
-  background-position: center center;              */
+  font-weight: 600;
+  color: navy;
+  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+    0px 0px 20px #b393d3;       
 }
 
 h2 { 
   margin-bottom: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  color: navy;
+  text-shadow: 0px 0px 3px #b393d3, 0px 0px 5px #b393d3, 0px 0px 5px #b393d3,
+    0px 0px 10px #b393d3; 
 }
 
 h3 {
@@ -47,6 +50,11 @@ li {
   display: block;
 }
 
+a {
+  font-weight: bolder;
+  text-decoration: none;
+}
+
 form {
   background-color: rgb(103, 207, 198);
   border: solid black;
@@ -58,4 +66,44 @@ form {
   display: flex;
   flex-direction: column;
   font-weight: bold;
+}
+
+select {
+    background-color: white;
+    border: thin solid navy;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1em;
+    padding: 0;
+  
+    /* reset */
+  
+    margin: 0;      
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+button {
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 2px 2px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
