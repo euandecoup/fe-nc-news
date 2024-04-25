@@ -12,11 +12,6 @@
   }
 }
 
-a {
-  font-weight: bolder;
-  text-decoration: none;
-}
-
 .article-list {
   display: flex;
   flex-direction: column;

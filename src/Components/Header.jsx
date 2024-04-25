@@ -8,8 +8,7 @@ function Header () {
     return (
     <div>
         <h1>NC News</h1>
-        <p>Greetings {loggedInUser.username}!</p>
-        <img id= 'itemImg' src={loggedInUser.avatar_url}></img>
+        <h2>Greetings {loggedInUser.username}!</h2>
         <nav className='main-nav'>
             <Link className="link" key={'Home'} to={`/`}>Home</Link>
             <Link className="link" key={'Articles'} to={'/articles'}>Articles</Link>

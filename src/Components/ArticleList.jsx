@@ -48,7 +48,6 @@ function ArticleList ({articles, setArticles}) {
     ) : (<>
     <h2>So much content...</h2>
     <div>
-        <label>Sort by: </label>
         <select value={sortSelect} onChange={handleSortChange}>
             <option value="created_at">Date Added</option>
             <option value="comment_count">Comment Count</option>
