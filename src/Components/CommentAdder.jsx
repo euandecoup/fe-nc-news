@@ -40,7 +40,7 @@ function CommentAdder ({article_id, setComments}) {
             <label>What did you think?</label>
             <textarea value={newComment} onChange={handleCommentInput} rows="4" placeholder="Enter a comment here..."></textarea>
             <p>{error}</p>
-            <input type='submit' value='Add Comment' disabled={isSubmitting}/>
+            <input id='comment-button' type='submit' value='Add Comment' disabled={isSubmitting}/>
             {isSubmitting && <p>Posting comment...</p>}
         </form>
     )
