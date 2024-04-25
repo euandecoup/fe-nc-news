@@ -37,9 +37,9 @@ function CommentsList () {
 
     return (
         <div className='comments-list'>
-            <h4>{comments.length === 0 ? 'so much void...': 'So much comment...'}</h4>
             <CommentAdder article_id={article_id} setComments={setComments}/>
             {error && <p>{error}</p>}
+            <h2>{comments.length === 0 ? 'so much void...': 'So much comment...'}</h2>
             {comments.map((comment) => (
                 <div className='comment' key={comment.comment_id}>
                     <h4>{comment.username}</h4>
