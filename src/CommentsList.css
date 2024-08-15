@@ -1,0 +1,36 @@
+.comments-list {
+  padding: 16px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.comment-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+.comment {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid darkmagenta;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 600px) {
+  .comment-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .comment-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
