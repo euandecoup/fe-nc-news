@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import capitaliseFirstLetter from "../utils/capitaliseFirstLetter";
 import { fetchTopics } from "../utils/api";
+import "../TopicList.css";
 
 function TopicsList () {
     const [topics, setTopics] = useState([])
